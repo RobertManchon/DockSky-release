@@ -1,0 +1,169 @@
+---
+sidebar_position: 8
+title: Knowledge Manager
+---
+
+# 📚 Knowledge Manager
+
+Le **Knowledge Manager** est ta base de connaissances personnelle dans DockSky. C'est l'endroit où tu captures ce que tu apprends, les solutions que tu trouves, les procédures que tu répètes, les idées que tu ne veux pas perdre.
+
+Il est conçu pour le cerveau TDA : capture en quelques secondes, retrouver en quelques secondes.
+
+:::tip Cerveau TDA
+La mémoire de travail TDA est volatile. Une idée peut disparaître entre le moment où elle émerge et le moment où tu ouvres un éditeur. La capture rapide du Knowledge Manager existe pour ça — tu captures d'abord, tu enrichis ensuite.
+:::
+
+---
+
+## La différence avec les Facettes
+
+Le Knowledge Manager et les [Facettes](../concepts/facettes) coexistent, mais ils n'ont pas le même rôle :
+
+| Knowledge Manager 📚 | Facettes 🧠 |
+|----------------------|-------------|
+| Base de connaissances **générale** | Mémoire structurée **par projet** |
+| Idées, recettes, procédures, bookmarks... | WORKS, TRAP, DECISION, TODO... |
+| Recherche fulltext, tags, thèmes | Organisée par projet, partageable avec l'IA |
+| Usage personnel | Usage IA + co-pilote de projet |
+
+En pratique : une solution à un bug que tu veux partager avec ton IA → Facette. Une recette de cuisine ou une procédure SSH que tu veux retrouver toi-même → Knowledge.
+
+---
+
+## Les types d'entrées
+
+Chaque entrée a un type qui indique sa nature :
+
+| Type | Emoji | Usage |
+|------|-------|-------|
+| `NOTE` | 📝 | Information générale, observation, contexte |
+| `IDEA` | 💡 | Une idée à creuser plus tard |
+| `PROCEDURE` | 📋 | Une suite d'étapes à reproduire |
+| `RECIPE` | 🍳 | Un "template" réutilisable (config, script, commande...) |
+| `BUGFIX` | 🐛 | Une solution à un problème technique |
+| `BOOKMARK` | 🔖 | Un lien externe à retrouver |
+
+---
+
+## Les statuts
+
+| Statut | Signification |
+|--------|---------------|
+| `DRAFT` | Capture rapide — à compléter plus tard |
+| `ACTIVE` | Entrée complète, prête à l'emploi |
+| `ARCHIVED` | Soft-supprimée — encore récupérable |
+
+Quand tu utilises la capture rapide, l'entrée est créée en `DRAFT`. Tu peux l'enrichir ensuite depuis la vue Knowledge.
+
+---
+
+## Thèmes
+
+Les thèmes sont des **catégories personnalisables** pour organiser tes entrées. Par défaut, DockSky crée :
+
+- 💻 Développement
+- 🔧 DevOps
+- 🏠 Personnel
+- 💼 Travail
+- 💡 Idées
+
+Tu peux créer tes propres thèmes, choisir leur couleur et leur icône, et les réordonner.
+
+:::note
+Un thème est différent d'un tag. Le thème est la **catégorie principale** d'une entrée (une seule par entrée). Les tags sont des mots-clés **libres et multiples**.
+:::
+
+---
+
+## Tags
+
+Les tags sont des mots-clés libres associés à une entrée. Ils sont partagés entre toutes tes entrées et triés par popularité — les plus utilisés remontent en premier dans les suggestions.
+
+Quelques conventions utiles :
+
+- Utilise des tags courts et stables : `avalonia`, `mysql`, `ssh`, `regex`
+- Évite les tags trop génériques : `code`, `truc`, `important`
+- Un tag = un concept précis
+
+---
+
+## Capture rapide
+
+La capture rapide est accessible depuis le **bandeau permanent** sans interrompre ce que tu fais :
+
+1. Clique sur le bouton **📚** dans le bandeau (ou raccourci clavier)
+2. Tape un titre
+3. Choisis optionnellement le type (NOTE par défaut)
+4. Appuie sur **Entrée**
+
+L'entrée est créée immédiatement en statut `DRAFT`. Elle attend dans ta Knowledge Base que tu aies le temps de l'enrichir.
+
+---
+
+## Rechercher une entrée
+
+La vue Knowledge propose une **recherche fulltext** sur le titre et le contenu de toutes tes entrées. Elle est rapide et ne nécessite pas de connaître les tags ou le thème exact.
+
+Tu peux combiner la recherche avec des filtres :
+
+| Filtre | Usage |
+|--------|-------|
+| Type | Voir uniquement les BUGFIX, les IDEA, etc. |
+| Thème | Filtrer par catégorie |
+| Tags | Plusieurs tags séparés par virgule |
+| Favoris | Uniquement les entrées marquées ⭐ |
+| Épinglés | Uniquement les entrées 📌 |
+
+---
+
+## Favoris et épinglés
+
+Deux mécanismes pour mettre en avant les entrées importantes :
+
+- **⭐ Favori** — tu marques ce que tu consultes souvent ou que tu veux retrouver facilement
+- **📌 Épinglé** — l'entrée remonte **en haut de la liste**, même sans filtre
+
+Un `RECIPE` que tu utilises tous les jours → épingle-le. Une procédure que tu aimes bien mais que tu n'utilises qu'occasionnellement → mets-la en favori.
+
+---
+
+## Lier à un projet ou une tâche
+
+Une entrée Knowledge peut être rattachée à un **projet** ou une **tâche** de ta roadmap. Ça permet de retrouver toutes les connaissances accumulées autour d'un chantier précis en filtrant par `project_id` dans la vue.
+
+---
+
+## Archivage
+
+Supprimer une entrée la passe en statut `ARCHIVED` (soft-delete). Elle n'apparaît plus dans les résultats par défaut, mais elle n't pas effacée. Tu peux la retrouver en activant le filtre `status=ARCHIVED` et la restaurer si besoin.
+
+Pour une suppression définitive, une option de hard-delete est disponible depuis le menu contextuel de l'entrée.
+
+---
+
+## Statistiques
+
+La vue Knowledge affiche un résumé de ta base :
+
+- Nombre total d'entrées actives
+- Répartition par type
+- Entrées créées ce mois-ci
+- Tags les plus utilisés
+
+---
+
+## Workflow recommandé
+
+```
+Capture rapide depuis le bandeau (5 secondes)
+              ↓
+        Entrée en DRAFT
+              ↓
+  (Plus tard) Ouvrir la vue Knowledge
+              ↓
+  Enrichir : contenu complet, thème, tags, type
+              ↓
+        Passer en ACTIVE
+              ↓
+  Retrouver via recherche fulltext ou filtres
+```
