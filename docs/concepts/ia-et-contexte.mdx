@@ -1,0 +1,76 @@
+---
+sidebar_position: 4
+title: IA et contexte
+---
+
+# IA et contexte
+
+DockSky n'est pas un chatbot. Il n'intègre pas de fenêtre de conversation IA. C'est un choix délibéré.
+
+Ce que DockSky fait, c'est résoudre le **vrai problème** : que ton IA te connaisse, maintenant et à la prochaine conversation.
+
+---
+
+## Le problème
+
+Chaque fois que tu ouvres Claude, ChatGPT ou n'importe quel LLM, tu repars de zéro. Tu réexpliques ton projet, tes contraintes, tes décisions passées, ton style de travail.
+
+Pour un cerveau TDA, c'est de la charge cognitive pure. Et c'est souvent la raison pour laquelle on abandonne un outil avant d'en tirer de la valeur.
+
+---
+
+## La solution DockSky
+
+DockSky devient le **protocole de liaison** entre toi et ton IA. Les Facettes sont la mémoire. DockSky est le chargeur.
+
+> *"L'utilisateur et son IA partagent le même cerveau externe. Les Facettes sont le protocole de liaison. Ce n'est pas un chatbot, c'est un co-pilote de vie."*
+
+---
+
+## Ce que DockSky fait (et ne fait pas)
+
+**DockSky fait :**
+- Organiser et structurer ton contexte en Facettes thématiques
+- Prioriser automatiquement tes tâches (en arrière-plan, sans que tu demandes)
+- Générer des résumés de projet
+- Suggérer des Quick Wins
+- Soft-supprimer les entrées obsolètes (si tu l'autorises via `AiAllowDelete`)
+
+**DockSky ne fait pas :**
+- De fenêtre chat
+- De conversation en temps réel
+- De réponses générées à ta place
+
+L'IA de DockSky est **semi-automatique et invisible** : elle agit en arrière-plan, sur tes données, sans interrompre ton flux de travail.
+
+---
+
+## Comment brieffer ton IA
+
+### Option 1 — Copier-coller manuel (immédiat)
+
+1. Ouvre la vue **Facettes** de ton projet
+2. Sélectionne la ou les Facettes pertinentes
+3. Clique sur **Copier JSON**
+4. Colle en début de conversation dans Claude, ChatGPT, etc.
+
+Ton IA dispose instantanément de tout le contexte : décisions passées, solutions validées, pièges connus, état d'avancement.
+
+### Option 2 — Lien de contexte permanent
+
+Pour les projets avec l'accès IA activé, DockSky génère un **lien de contexte public** unique (`/ai/context/{share_token}`). Tu le configures une fois dans les instructions système de ton IA — elle récupère ton contexte à chaque conversation, sans aucune action de ta part.
+
+→ Voir [Partage de contexte](../integration-ia/partage-contexte) pour le détail.
+
+---
+
+## Ce que ça change concrètement
+
+Avant DockSky :
+> "Je travaille sur un projet en Avalonia, j'utilise le pattern MVVM avec CommunityToolkit, j'ai eu un bug avec les ContextMenus — le PlacementTarget était null — que j'ai résolu en ajoutant `Tag=\{Binding\}` sur le ContextMenu…"
+
+Avec DockSky :
+> *(colle le JSON de la facette "Bugs & Solutions")*  
+> "Continue sur le bug de la vue Routines."
+
+La différence, c'est plusieurs minutes d'explication économisées **à chaque session**.

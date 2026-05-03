@@ -1,0 +1,111 @@
+---
+sidebar_position: 2
+title: Facettes — ton cerveau externe
+---
+
+# Facettes — ton cerveau externe
+
+Les Facettes sont la mémoire structurée de tes projets.
+
+Si tu as déjà perdu une heure à chercher "comment j'avais résolu ce bug déjà ?" ou "quelle était ma décision sur ce point ?", les Facettes sont la réponse. Elles mémorisent ce qui vaut la peine d'être retenu — pour toi, et pour ton IA.
+
+---
+
+## Le principe
+
+Chaque projet contient plusieurs Facettes. Une Facette est un **fichier thématique** : une pour l'architecture technique, une pour les décisions de design, une pour les bugs et solutions, une pour les personnages d'un roman, etc.
+
+Dans chaque Facette, tu crées des **entrées typées**.
+
+---
+
+## Les types d'entrées
+
+| Type | Usage |
+|------|-------|
+| `NOTE` | Informations générales, contexte, observations |
+| `WORKS` | Ce qui fonctionne — solutions validées, patterns éprouvés |
+| `TRAP` | Ce qui ne fonctionne pas — erreurs à ne pas répéter |
+| `DECISION` | Choix acté, avec le raisonnement qui l'a motivé |
+| `TODO` | Tâche à faire dans le contexte de cette Facette |
+
+### WORKS — ce qui marche
+
+```
+WORKS: ScrollViewer dans un StackPanel
+→ Mettre MaxHeight explicite sur le ScrollViewer, sinon expansion infinie.
+```
+
+Un `WORKS` n'est pas une note de satisfaction — c'est un **pattern validé** que tu pourras réutiliser et transmettre à ton IA sans réexplication.
+
+### TRAP — ce qui casse
+
+```
+TRAP: bool.ToString() en Avalonia retourne 'True'/'False' (Pascal case).
+→ Utiliser un converter ou un ternaire dans le ViewModel.
+```
+
+Un `TRAP` t'évite de retomber deux fois dans le même piège. Il évite aussi à ton IA de te suggérer la mauvaise solution.
+
+### DECISION — les choix actés
+
+```
+DECISION: IA dans DockSky = traitements semi-auto uniquement.
+Pas de fenêtre chat — intégration contextuelle invisible.
+```
+
+Les décisions documentées évitent de remettre en cause indéfiniment les mêmes choix. Quand tu reviens sur un projet après une pause, tu retrouves le fil immédiatement.
+
+---
+
+## La règle d'or
+
+:::info 1 titre = 1 sujet = 1 entrée
+
+Ne crée pas "Bug login v2", "Bug login mars 2026", "Bug login nouveau" — mets tout dans une seule entrée **"Bug login"** que tu enrichis au fil du temps.
+
+L'historique reste lisible. La recherche reste efficace. Ton IA retrouve le bon contexte sans ambiguïté.
+
+Exception : si deux sujets sont vraiment distincts, deux entrées distinctes sont légitimes.
+:::
+
+---
+
+## Utilisation sans IA
+
+Les Facettes ont une valeur autonome, indépendamment de l'IA.
+
+Tu peux les utiliser comme un **carnet de bord structuré** pour n'importe quel sujet complexe : un dossier juridique, un roman, une préparation médicale, une succession. Elles restent consultables, filtrables, et consultables n'importe quand.
+
+---
+
+## Partager avec ton IA
+
+Quand tu veux brieffer ton IA avec le contenu d'une Facette :
+
+1. Ouvre la vue **Facettes** de ton projet
+2. Sélectionne la ou les Facettes pertinentes
+3. Clique sur **Copier JSON**
+4. Colle en début de conversation dans Claude, ChatGPT, ou autre
+
+Ton IA dispose immédiatement de tout le contexte : décisions passées, solutions validées, pièges connus, état d'avancement.
+
+Pour une configuration permanente via lien de contexte, voir [Partage de contexte](../integration-ia/partage-contexte).
+
+---
+
+## Exemple de Facette
+
+**Facette "Bugs & Solutions" d'un projet de développement :**
+
+| Type | Titre | Contenu |
+|------|-------|---------|
+| `TRAP` | TextBox LostFocus | LostFocus = bouton Enregistrer inopérant. Fix : `UpdateSourceTrigger=PropertyChanged` sur tous les bindings TextBox. |
+| `WORKS` | Commands async MVVM | `[RelayCommand] async Task NomCommand()` — CommunityToolkit génère `NomCommand` + `IsNomRunning`. |
+| `DECISION` | Pas de chat IA | L'IA est semi-auto et invisible. Jamais de fenêtre de conversation. |
+
+---
+
+## La Corbeille IA
+
+Si tu autorises DockSky à gérer ta mémoire, il peut marquer automatiquement les entrées obsolètes pour suppression. Elles passent en **corbeille** (soft-delete) — tu peux les consulter et les restaurer à tout moment. Voir [Corbeille IA](../fonctionnalites/corbeille).
