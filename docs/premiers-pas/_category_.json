@@ -1,8 +1,8 @@
 {
-  "label": "Premiers pas",
-  "position": 2,
-  "link": {
-    "type": "generated-index",
-    "description": "Installe DockSky et crée ton premier projet en quelques minutes."
-  }
+    "label": "Premiers pas",
+    "position": 2,
+    "link": {
+        "type": "generated-index",
+        "description": "Installe DockSky et crée ton premier projet en quelques minutes."
+    }
 }
