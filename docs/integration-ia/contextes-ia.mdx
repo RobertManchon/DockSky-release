@@ -1,0 +1,134 @@
+---
+sidebar_position: 2
+title: Contextes IA
+---
+
+# 🤖 Contextes IA
+
+Les **Contextes IA** permettent de composer des "paquets de connaissances" que tu injectes dans ton IA avant une session de travail. Au lieu de ré-expliquer ton environnement à chaque fois, tu coches les notes pertinentes et tu copies le JSON généré.
+
+:::tip Pourquoi c'est utile
+Une IA ne se souvient de rien entre deux conversations. Sans contexte, tu passes les 5 premières minutes à lui expliquer ton stack, ton VPS, tes conventions de code. Avec un contexte DockSky, elle est opérationnelle en 10 secondes.
+:::
+
+---
+
+## Concept
+
+Un **groupe de contexte** est une sélection nommée de notes de facettes. Tu en crées autant que de types de sessions :
+
+- *Session backend* → config env dev + accès VPS + pattern FastAPI
+- *Session Avalonia* → conventions MVVM + TRAPs Avalonia + règles de nommage
+- *Session LRVB* → notes de personnages + fil narratif + décisions éditoriales
+
+Chaque note peut appartenir à **plusieurs groupes** à la fois. Tu ne duppliques rien.
+
+---
+
+## Utilisation
+
+### 1. Ouvrir la vue Contextes IA
+
+Dans la barre latérale de TDA Assistant, clique sur **🤖 Contextes IA**.
+
+### 2. Sélectionner un projet
+
+Choisis le projet concerné dans le menu déroulant en haut à gauche. Les groupes existants et les facettes du projet se chargent automatiquement.
+
+### 3. Créer un groupe
+
+Tape un nom dans le champ *"Nom du nouveau groupe…"* et clique sur **＋**.
+
+> **Exemples de noms** : `Session backend`, `Briefing LRVB Tome 2`, `Infra VPS`
+
+### 4. Cocher les notes à inclure
+
+Dans le panneau central :
+
+1. Choisis une **facette** dans le menu déroulant — commence par ta facette `contexte_ai` si tu en as une, qui regroupe toutes tes notes techniques
+2. **Coche les notes** que tu veux dans ce groupe
+3. Change de facette pour piocher des notes ailleurs si besoin
+
+:::info Une note, plusieurs groupes
+La même note peut être dans plusieurs groupes. Par exemple, une note "accès VPS / ports" peut être utile à la fois dans *Session backend* et dans *Infra VPS*.
+:::
+
+### 5. Copier le JSON
+
+Dans le panneau de droite, clique sur **📋 Copier JSON**. Le contexte est maintenant dans ton presse-papier, prêt à être collé dans ton IA.
+
+La **taille estimée** (en Ko) est affichée en couleur :
+- 🟢 Vert : léger, idéal
+- 🟠 Orange : attention à la fenêtre de contexte
+- 🔴 Rouge : trop volumineux, affine ta sélection
+
+---
+
+## La facette `contexte_ai`
+
+:::tip Bonne pratique
+Crée une facette dédiée dans chaque projet et appelle-la `contexte_ai` (ou `🧠 Contexte IA`). Mets-y toutes les notes techniques stables : config d'environnement, accès, conventions, règles de collaboration, TRAPs connus.
+
+Avantage : tu sais toujours où chercher, et tu pioches dans d'autres facettes uniquement quand une session a besoin de notes plus spécifiques (notes de code en cours, fil narratif d'un chapitre, etc.).
+:::
+
+---
+
+## Profil IA
+
+En bas du panneau droit, une zone **🧠 Profil IA** te permet de définir un texte injecté automatiquement en tête de chaque export.
+
+C'est l'endroit pour décrire qui tu es, ton style de communication préféré, tes contraintes :
+
+```
+Je suis développeur solo avec un diagnostic TDA. Je préfère les réponses
+directes et structurées. Pas de formules de politesse, pas de listes à
+5 niveaux. Tu peux me tutoyer.
+```
+
+Ce profil est global (pas lié à un projet) et sauvegardé sur le serveur. Le bouton **💾 Sauvegarder** s'active dès qu'une modification est détectée.
+
+---
+
+## Format du JSON exporté
+
+Le JSON généré suit une structure simple que n'importe quel LLM comprend :
+
+```json
+{
+  "group": "Session backend",
+  "project": "TDA Assistant",
+  "generated_at": "2026-05-04T10:32:00Z",
+  "user_profile": "Développeur solo TDA, réponses directes...",
+  "facets": [
+    {
+      "facet": "contexte_ai",
+      "entries": [
+        {
+          "type": "NOTE",
+          "title": "Config env dev",
+          "content": "Python 3.11, FastAPI, MySQL 8..."
+        },
+        {
+          "type": "TRAP",
+          "title": "Ne pas utiliser alembic head (singulier)",
+          "content": "Utiliser heads (pluriel) — plusieurs branches de migration coexistent."
+        }
+      ]
+    }
+  ]
+}
+```
+
+---
+
+## Questions fréquentes
+
+**Est-ce que mes notes sont envoyées à l'IA automatiquement ?**
+Non. L'export est manuel — tu copies le JSON et tu le colles toi-même dans ta session IA. Rien n'est transmis sans ton action.
+
+**Puis-je utiliser ce contexte avec n'importe quel LLM ?**
+Oui. Le JSON est du texte brut structuré. Il fonctionne avec Claude, ChatGPT, Gemini, Copilot, ou n'importe quel autre outil qui accepte du texte en entrée.
+
+**Que se passe-t-il si je supprime une note d'une facette ?**
+Elle est retirée de tous les groupes qui la contenaient. Le compteur de notes du groupe se met à jour au prochain export.
