@@ -3,16 +3,57 @@ sidebar_position: 6
 title: Corbeille IA
 ---
 
-# Corbeille IA
+# 🗑️ Corbeille IA
 
-:::note En cours de rédaction
-Documentation en cours de rédaction — cette section sera enrichie prochainement.
+Quand ton IA supprime une entrée de Facette (parce qu'elle l'a jugée obsolète, doublonnée ou remplacée), elle ne la détruit pas définitivement — elle la place en **corbeille**. Tu peux la consulter et la restaurer à tout moment.
+
+:::tip Sécurité
+L'IA ne peut supprimer des entrées de Facettes que si tu lui en as donné l'autorisation explicite dans les paramètres du projet. Sans cette autorisation, elle peut uniquement lire et créer — jamais supprimer.
 :::
 
-Quand DockSky détecte qu'une entrée de Facette est obsolète, il peut la **supprimer de façon douce** (soft-delete) plutôt que de l'effacer définitivement. La corbeille te permet de la consulter et de la restaurer si besoin.
+---
+
+## Pourquoi une corbeille ?
+
+Les suppressions par IA sont toujours réversibles. Si ton IA a mal jugé qu'une note était obsolète, tu peux la récupérer en deux clics. Aucune connaissance n'est perdue définitivement.
+
+---
 
 ## Configurer l'autorisation IA
 
+L'autorisation de suppression est réglée au niveau du **projet** :
+
+1. Ouvre la vue **Projets**
+2. Sélectionne le projet concerné
+3. Dans les paramètres du projet, active ou désactive **"Autoriser l'IA à supprimer des entrées"**
+
+Par défaut, cette autorisation est **désactivée** — tu dois l'activer explicitement projet par projet.
+
+---
+
+## Consulter la corbeille
+
+**Menu Vue** → _🗑️ Corbeille IA_
+
+La corbeille affiche toutes les entrées de Facettes supprimées par l'IA, avec :
+- Le **projet** et la **facette** d'origine
+- Le **type d'entrée** (NOTE, WORKS, TRAP, DECISION, TODO)
+- Le **contenu** de l'entrée
+- La **date de suppression**
+
+---
+
 ## Restaurer une entrée
 
+1. Sélectionne l'entrée dans la liste
+2. Clique sur **Restaurer** — elle revient dans sa facette d'origine avec son contenu intact
+
+---
+
 ## Vider la corbeille
+
+Le bouton **Vider la corbeille** supprime définitivement toutes les entrées en attente. Cette action est **irréversible**.
+
+:::note
+Il est conseillé de passer en revue la corbeille de temps en temps plutôt que de la laisser s'accumuler. Une corbeille pleine peut être le signe que ton IA supprime trop agressivement — pense à affiner son autorisation.
+:::
