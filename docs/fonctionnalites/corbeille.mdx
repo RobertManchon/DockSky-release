@@ -50,10 +50,30 @@ La corbeille affiche toutes les entrées de Facettes supprimées par l'IA, avec 
 
 ---
 
+## Supprimer une entrée définitivement
+
+Chaque entrée de la corbeille dispose d'un bouton **🗑️ Supprimer** à côté du bouton Restaurer.
+
+Cette action supprime **l'entrée sélectionnée uniquement** de façon permanente, sans toucher au reste de la corbeille. À utiliser quand tu es sûr qu'une note est définitivement sans valeur.
+
+:::danger Irréversible
+Contrairement à la restauration, une suppression définitive ne peut pas être annulée. Le contenu de la note est perdu pour toujours.
+:::
+
+---
+
 ## Vider la corbeille
 
-Le bouton **Vider la corbeille** supprime définitivement toutes les entrées en attente. Cette action est **irréversible**.
+Le bouton **Vider la corbeille** supprime définitivement **toutes** les entrées en attente en une seule action. Cette action est **irréversible**.
 
 :::note
 Il est conseillé de passer en revue la corbeille de temps en temps plutôt que de la laisser s'accumuler. Une corbeille pleine peut être le signe que ton IA supprime trop agressivement — pense à affiner son autorisation.
 :::
+
+---
+
+## Pourquoi seulement les Facettes ?
+
+La corbeille est **exclusivement réservée aux entrées de Facettes**. Les autres entités (Actions, Tâches, Étapes, Projets) sont supprimées définitivement sans passer par la corbeille.
+
+Ce choix est intentionnel : les entrées de Facettes sont des notes libres, riches en contenu, difficiles à recréer en cas d'erreur. Les Actions et Tâches ont des **statuts** (`terminé`, `annulé`...) qui jouent déjà le rôle d'archivage et rendent la corbeille superflue pour elles.
